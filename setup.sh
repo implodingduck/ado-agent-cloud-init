@@ -12,7 +12,7 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO 
 sudo apt-get update
 sudo apt-get install -y azure-cli
 
-az aks install-cli
+sudo az aks install-cli
 
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 
