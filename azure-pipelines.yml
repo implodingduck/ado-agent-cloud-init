@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: customagentspool
 
 steps:
 - script: echo Hello, world!
@@ -16,4 +15,7 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
+    which az
+    which kubectl
+    which terraform
   displayName: 'Run a multi-line script'
