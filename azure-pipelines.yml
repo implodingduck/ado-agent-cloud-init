@@ -6,6 +6,9 @@
 trigger:
 - main
 
+variables:
+- group: ado-agent-cloud-init-lib
+
 pool: customagentspool
 
 steps:
@@ -19,3 +22,13 @@ steps:
     which kubectl
     which terraform
   displayName: 'Run a multi-line script'
+
+- task: Kubernetes@1
+  displayName: kubectl apply using arguments
+  inputs:
+    connectionType: Azure Resource Manager
+    azureSubscriptionEndpoint: ARM_SUBSCRIPTION
+    azureResourceGroup: $(AKS-RG)
+    kubernetesCluster: $(AKS-CLUSTER)
+    command: apply
+    arguments: -f aks-helloworld-one.yaml
